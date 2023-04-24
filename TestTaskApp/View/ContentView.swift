@@ -6,16 +6,22 @@
 //
 
 import SwiftUI
+import Foundation
 
 struct ContentView: View {
+    @ObservedObject var data = VendorsViewModel()
+
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        
+        ZStack {
+            Color("\(Colors.background)")
+                .edgesIgnoringSafeArea(.all)
+            
+            VStack {
+                VendorCardView()
+            }
         }
-        .padding()
+        
     }
 }
 
@@ -24,3 +30,4 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
+
